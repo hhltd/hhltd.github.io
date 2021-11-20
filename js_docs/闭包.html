@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>闭包 | hhltd的个人博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="前端开发 hhltd的个人博客">
+    
+    <link rel="preload" href="/assets/css/0.styles.e4d8b86b.css" as="style"><link rel="preload" href="/assets/js/app.c36be9e9.js" as="script"><link rel="preload" href="/assets/js/2.34235d8e.js" as="script"><link rel="preload" href="/assets/js/3.2f02bfbf.js" as="script"><link rel="prefetch" href="/assets/js/10.6ce8a8cb.js"><link rel="prefetch" href="/assets/js/11.624e2edb.js"><link rel="prefetch" href="/assets/js/12.e7e1a653.js"><link rel="prefetch" href="/assets/js/13.410548ad.js"><link rel="prefetch" href="/assets/js/14.b5893008.js"><link rel="prefetch" href="/assets/js/15.2d052b5f.js"><link rel="prefetch" href="/assets/js/16.c2f7e181.js"><link rel="prefetch" href="/assets/js/17.6b15aa38.js"><link rel="prefetch" href="/assets/js/18.cf1cb7f5.js"><link rel="prefetch" href="/assets/js/19.d392b7a9.js"><link rel="prefetch" href="/assets/js/20.9732a725.js"><link rel="prefetch" href="/assets/js/4.f8365012.js"><link rel="prefetch" href="/assets/js/5.d117c289.js"><link rel="prefetch" href="/assets/js/6.6b673022.js"><link rel="prefetch" href="/assets/js/7.0b9b5fee.js"><link rel="prefetch" href="/assets/js/8.b011d26d.js"><link rel="prefetch" href="/assets/js/9.e7cae791.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.e4d8b86b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/logo.png" alt="hhltd的个人博客" class="logo"> <span class="site-name can-hide">hhltd的个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link router-link-active">
+  JS
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/vue_docs/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/node_docs/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/others_docs/" class="nav-link">
+  日常
+</a></div><div class="nav-item"><a href="https://github.com/hhltd/hhltd.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/js_docs/" class="nav-link router-link-active">
+  JS
+</a></div><div class="nav-item"><a href="/css_docs/" class="nav-link">
+  CSS
+</a></div><div class="nav-item"><a href="/vue_docs/" class="nav-link">
+  Vue
+</a></div><div class="nav-item"><a href="/node_docs/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/others_docs/" class="nav-link">
+  日常
+</a></div><div class="nav-item"><a href="https://github.com/hhltd/hhltd.github.io" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/js_docs/闭包.html" class="active sidebar-link">闭包</a></li><li><a href="/js_docs/call和apply和bind的实现.html" class="sidebar-link">call / apply/ bind实现</a></li><li><a href="/js_docs/记一次iframe通信的问题.html" class="sidebar-link">记一次iframe通信中碰到的问题</a></li><li><a href="/js_docs/script标签中的defer和async.html" class="sidebar-link">浅谈script标签中的async和defer</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h1> <p>闭包是JS中的一大难点，正如《你不知道的JavaScript》中所说，它是一个充满神秘的未开化的世界，只有勇敢的人才能到达那里。在实际的开发工作中，除了面试，一般只在一些特定场景下，如：防抖函数、setTimeout传参等，其它时候基本不用，或者用了也不知道。</p> <blockquote><p>多好的东西，咱既要懂也要会用。</p></blockquote> <p><img src="/assets/img/title.9b48b984.png" alt="" title=":size=830x468"></p> <p>本次分享从JS的执行上下文、执行上下文栈、(静态/动态)作用域链来理解闭包。</p> <h4 id="执行上下文"><a href="#执行上下文" class="header-anchor">#</a> 执行上下文</h4> <p>在谈闭包之前，首先要了解一个概念，即执行上下文：一种由js引擎自动创建的对象, 包含对应作用域中的所有变量属性。执行上下文共有三种类型：</p> <p>一、全局执行上下文, 一般指window</p> <ol><li>生命周期：准备执行全局代码前产生, 当页面刷新/关闭页面时死亡</li> <li>包含的属性：</li></ol> <ul><li>用var定义的全局变量 ==&gt;undefined</li> <li>使用function声明的函数 ===&gt;function</li> <li>this ===&gt;window</li></ul> <ol start="3"><li>执行上下文创建和初始化的过程：</li></ol> <ul><li>在全局代码执行前最先创建一个全局执行上下文(window)</li> <li>收集一些全局变量, 并初始化</li> <li>将这些变量设置为window的属性</li></ul> <p>二、函数执行上下文 –&gt; 对程序员来说是透明的</p> <ol><li>生命周期: 调用函数时产生, 函数执行完时死亡</li> <li>包含的属性:</li></ol> <ul><li>用var定义的局部变量 ==&gt;undefined</li> <li>使用function声明的函数 ===&gt;function</li> <li>this ===&gt; 调用函数的对象, 如果没有指定就是window</li> <li>形参变量 ===&gt;对应实参值</li> <li>arguments ===&gt;实参列表的伪数组</li></ul> <ol start="3"><li>执行上下文创建和初始化的过程：</li></ol> <ul><li>在调用函数时, 在执行函数体之前先创建一个函数执行上下文</li> <li>收集一些局部变量, 并初始化</li> <li>将这些变量设置为执行上下文的属性</li></ul> <h4 id="执行上下文栈-用来管理产生的多个执行上下文"><a href="#执行上下文栈-用来管理产生的多个执行上下文" class="header-anchor">#</a> 执行上下文栈, 用来管理产生的多个执行上下文</h4> <ol><li><p>每个函数都有自己的执行环境，当执行流进入一个函数时，函数的环境就会被推入一个环境栈中。函数执行完后，栈将其环境弹出，把控制权返回给之前的执行环境。</p></li> <li><p>一个程序代码中包含多个函数，也就是包含多个函数执行上下文，为了管理好多个执行上下文之间的关系，JavaScript中创建了执行上下文栈来管理执行上下文。执行上下文栈是具有后进先出结构的栈结构，用于存储在代码执行期间创建的所有执行上下文。</p></li> <li><p>当JavaScript引擎运行JavaScript代码时它会创建一个全局执行上下文并将其push到当前调用栈。（函数还没解析或者是执行、调用）仅存在全局执行上下文，每当引擎发现函数调用时，引擎都会为该函数创建一个新的函数执行上下文，并将其推入到堆栈的顶部（当前执行栈的栈顶）。当引擎执行其执行上下文位于堆栈顶部的函数之后，将其对应的函数执行上下文将会从堆栈中弹出，并且控件到达当前堆栈中位于其下方的上下文（如果有下一个函数的话）</p></li></ol> <p>上述文字过程比较抽象，我们通过一段代码来看一下这个过程：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> sum <span class="token operator">=</span> num <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span>num1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><ul><li>第12行，在全局执行上下文声明变量num1，并赋值10；</li> <li>第13-16行，函数执行上下文。在全局执行上下文声明了一个add函数，内部代码并不执行；</li> <li>第17行，声明了一个变量result，并赋值为add函数的返回值；</li> <li>在全局上下文找到add函数并执行，传入参数10；</li> <li>此时，执行上下文切换！创建一个add的函数执行上下文，push到执行栈中；</li> <li>第14行，在函数执行上下文声明一个变量num，并赋值为10；</li> <li>第14行，声明一个变量sum，赋值为num + 2的结果；</li> <li>第15行，将sum的值进行返回；</li> <li>第15、16行，add函数执行结束，add函数的执行上下文销毁，变量num和sum会清除，执行上下文被推出调用栈，然后将函数返回给调用它的执行上下文，此处即为全局执行上下文；</li> <li>回到第17行，将返回值赋给result；</li> <li>第18行，打印
+可以看到，这一过程非常冗长，但这是我们理解闭包所必须了解的。</li></ul> <h4 id="this"><a href="#this" class="header-anchor">#</a> this</h4> <p>在执行上下文中,有一个词this,this允许复用函数时使用不同的上下文,换句话说,this关键字允许在调用函数或者方法时决定哪个对象是焦点。</p> <p>一般来说,JavaScript中this的绑定主要分为以下五种:
+隐式绑定
+显式绑定
+new绑定
+window绑定
+*箭头函数</p> <p>关于this绑定的具体内容,可以阅读 https://mp.weixin.qq.com/s/hYm0JgBI25grNG_2sCRlTA</p> <p>总结来说,主要有以下几步:</p> <ol><li>看函数在哪被调用</li> <li>点的左侧有没有对象?如果有,它就是this的引用,如果没有,继续第3步</li> <li>该函数是不是call、apply、bind调用?如果是,它会显式的指明this的调用,如果不是,继续第4步</li> <li>该函数是不是new调用?如果是,this指向的就是JavaScript解释器新创建的对象,如果不是,继续第5步</li> <li>是否在严格模式下?如果是,this指向undefined,如果不是,this指向window</li></ol> <h4 id="静态作用域链-词法作用域"><a href="#静态作用域链-词法作用域" class="header-anchor">#</a> 静态作用域链（词法作用域）</h4> <p>了解了执行上下文和执行上下文栈，我们来看一下什么是静态作用域链。为什么要叫静态呢？因为这样的嵌套关系是分析代码就可以得出的(在定义时就确定了)，不需要运行，按照这种顺序访问变量的链就是静态作用域链，这种链的好处是可以直观的知道变量之间的引用关系。</p> <p>我们将上面的例子稍微改动一下，来看一下这个过程：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token parameter">num</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> sum <span class="token operator">=</span> num <span class="token operator">+</span> num1<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">let</span> result <span class="token operator">=</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>一些重复的过程在这里不在赘述，我们从创建add函数作用域，并push到执行栈开始。</p> <ul><li>到第14行，在函数执行上下文声明一个变量num，并赋值10；</li> <li>第14行，声明一个变量sum，赋值为num + num1的结果。num为10，那么num1呢？在当前的函数执行上下文中并未找到num1；</li> <li>此时，JS引擎调用add函数的全局执行上下文找num1，找到了，值为10，10 + 10 = 100，然后赋给sum；</li> <li>第15行，将sum结果返回；</li> <li>第14、15行，add函数执行完毕，函数执行上下文被销毁，变量sum和num被清除，但num1并未清除，它存在于全局执行上下文；
+上述过程即为静态作用域链的链式查找过程。</li></ul> <p>那么静态作用域链具体长啥样呢，比如下面一段代码：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">function</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token string">'num1'</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">inner1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> num2 <span class="token operator">=</span> <span class="token string">'num2'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">{</span>
+        <span class="token keyword">function</span> <span class="token function">inner2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> num3 <span class="token operator">=</span> <span class="token string">'num3'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+</code></pre></div><p>其中有num1、num2、num3三个变量，outer、inner1、inner2三个函数以及一个块，他们之间的作用域链可以分析出如下：</p> <p><img src="/assets/img/scope-chain.7663f318.png" alt="" title=":size=360x800"></p> <p>函数和块的作用域内声明的变量会在作用域内创建一个绑定，即变量名绑定到具体的值，然后其它地方可以应用这个绑定，这就是静态作用域中的变量访问顺序</p> <h4 id="动态作用域"><a href="#动态作用域" class="header-anchor">#</a> 动态作用域</h4> <p>当然，有静态作用域，就会有动态作用域。作用域的引用关系与嵌套关系无关，与执行顺序有关，其生命周期到代码片段执行为止。会在执行的时候动态创建不同函数、块的作用域的引用关系。缺点就是不直观，没法静态分析。
+看一个简单的例子：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'global'</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 使用with之前，输出global</span>
+  <span class="token keyword">with</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token operator">:</span> <span class="token string">'dynamic'</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 使用with改变作用域链，输出dynamic</span>
+  <span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// with之后，作用域链恢复，输出global</span>
+</code></pre></div><p>使用了with之后使得作用域链发生了变化。在实际场景中,不推荐使用这种做法!!!</p> <h4 id="主角闭包"><a href="#主角闭包" class="header-anchor">#</a> 主角闭包</h4> <p>看了上面这么多七七八八的分析，接下来我们终于来到了我们的主角闭包。因JavaScript除了静态作用域链外，还可以将函数作为返回值：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">function</span> <span class="token function">printNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> f <span class="token operator">=</span> <span class="token function">printNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>这样就会出现一个问题，本来按照顺序创建调用一层层函数，按照顺序创建和销毁作用域，但是，如果内层函数返回了或者通过别的暴露出去了，那么外层函数销毁，内层函数却没有销毁，这种情况该怎么处理呢？(在上面的代码片段中，printNum调用结束后要不要销毁作用域呢？)</p> <p>我们把分析静态作用域链的代码进行改写，返回内部的函数，并在外部进行调用：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">function</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token string">'num1'</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">inner1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> num2 <span class="token operator">=</span> <span class="token string">'num2'</span><span class="token punctuation">;</span>
+      <span class="token keyword">function</span> <span class="token function">inner2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> num3 <span class="token operator">=</span> <span class="token string">'num3'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> inner2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> inner1<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> outer2 <span class="token operator">=</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>当调用outer2的时候outer已经执行完了，要不要销毁呢？JavaScript非常巧妙的设计了一种闭包机制。</p> <p>闭包是怎么设计的呢？</p> <ul><li>我们先来想一下在静态作用域链中父作用域先于子作用域销毁该怎么解决？</li> <li>首先，父作用域并不是不销毁就行了，父作用域中有很多东西与子函数无关，为啥因为子函数没结束就一直常驻内存。这样肯定有性能问题，所以还是要销毁。 但是销毁了父作用域不能影响子函数，所以要再创建个对象，要把子函数内引用（refer）的父作用域的变量打包里来，给子函数打包带走。</li> <li>其次，怎么才能让子函数打包带走呢？设计个独特的属性，比如 [[Scopes]] ，用这个来放函数打包带走的用到的环境。并且这个属性得是一个栈，因为函数有子函数、子函数可能还有子函数，每次打包都要放在这里一个包，所以就要设计成一个栈结构，就像饭盒有多层一样。</li></ul> <p>综上考虑，在父作用域销毁后，把子作用域用到的变量打包给子函数，放到一个属性上，这就是闭包机制。来看一下刚才的代码</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">function</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token string">'num1'</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">inner1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> num2 <span class="token operator">=</span> <span class="token string">'num2'</span><span class="token punctuation">;</span>
+      <span class="token keyword">function</span> <span class="token function">inner2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> num3 <span class="token operator">=</span> <span class="token string">'num3'</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> inner2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> inner1<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> outer2 <span class="token operator">=</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> outer3 <span class="token operator">=</span> <span class="token function">outer2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">outer3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>这个outer3需不需要打包一些东西呢？来调试看一下：</p> <p><img src="/assets/img/debugger1.81e5d2f8.png" alt="" title=":size=833x406"></p> <p>其实还是有闭包的，闭包最少会包含全局作用域。</p> <p>那么为什么没有num1、num2和num3呢？num3是因为它是函数内部的变量，只有外部的变量才会生成闭包，我们改动一下代码，打印一下这三个变量：</p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>  <span class="token keyword">function</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> num1 <span class="token operator">=</span> <span class="token string">'num1'</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">inner1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> num2 <span class="token operator">=</span> <span class="token string">'num2'</span><span class="token punctuation">;</span>
+      <span class="token keyword">function</span> <span class="token function">inner2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> num3 <span class="token operator">=</span> <span class="token string">'num3'</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>num3<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> inner2<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> inner1<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> outer2 <span class="token operator">=</span> <span class="token function">outer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> outer3 <span class="token operator">=</span> <span class="token function">outer2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">outer3</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>再次查看 [[Scopes]] （打包带走的闭包环境）：</p> <p><img src="/assets/img/debugger1.81e5d2f8.png" alt="" title=":size=830x422"></p> <p>这时候就有俩闭包了，为什么呢？num3哪去了？</p> <ul><li>首先，我们需要打包的只是环境内没有的，也就是闭包只保存外部引用。然后是在创建函数的时候保存到函数属性上的，创建的函数返回的时候会打包给函数，但是 JS 引擎怎么知道它要用到哪些外部引用呢，需要做 AST 扫描，很多 JS 引擎会做 Lazy Parsing，（即它会将不必要的函数进行预解析，也就是只解析出外部函数需要的内容，而全量解析在调用这个函数时才发生）这时候去 parse 函数，正好也能知道它用到了哪些外部引用，然后把这些外部用打包成 Closure 闭包，加到 [[scopes]] 中。</li> <li>所以，闭包是返回函数的时候扫描函数内的标识符引用，把用到的本作用域的变量打成 Closure 包，放到 [[Scopes]] 里。</li></ul> <p>所以上面的函数会在 func3 返回的时候扫描函数内的标识符，把 num1、num2扫描出来了，就顺着作用域链条查找这俩变量，过滤出来打包成两个 Closure（因为属于两个作用域，所以生成两个 Closure），再加上最外层 Global，设置给函数 outer3 的 [[scopes]] 属性，让它打包带走。
+调用 outer3 的时候，JS 引擎 会取出 [[Scopes]] 中的打包的 Closure + Global 链，设置成新的作用域链， 这就是函数用到的所有外部环境了，有了外部环境，自然就可以运行了。</p> <h4 id="eval"><a href="#eval" class="header-anchor">#</a> eval</h4> <p>接下来考虑一种特殊情况，eval？因为闭包需要扫描函数内的标识符，做静态分析，那eval 怎么办，它有可能内容是从网络下载的，从磁盘读取的等等，内容是动态的。用静态去分析动态是不可能没 bug 的。怎么办？eval 确实没法分析外部引用，也就没法打包闭包，这种就特殊处理一下，打包整个作用域就好了。</p> <p>看下面的代码：</p> <p><img src="/assets/img/eval1.dff76fd8.png" alt="" title=":size=830x588"></p> <p><img src="/assets/img/eval1.dff76fd8.png" alt="" title=":size=830x550"></p> <p>这个就是 eval 的实现，因为没法静态分析动态内容所以全部打包成闭包了，本来闭包就是为了不保存全部的作用域链的内容，结果 eval 导致全部保存了，所以尽量不要用 eval。会导致闭包保存内容过多。</p> <h4 id="闭包定义"><a href="#闭包定义" class="header-anchor">#</a> 闭包定义</h4> <p>讲了这么多，我们来给闭包下一个定义：
+闭包是在函数创建的时候，让函数打包带走的根据函数内的外部引用来过滤作用域链剩下的链。它是在函数创建的时候生成的作用域链的子集，是打包的外部环境。evel 因为没法分析内容，所以直接调用会把整个作用域打包（所以尽量不要用 eval，容易在闭包保存过多的无用变量），而不直接调用则没有闭包。</p> <ol><li>全局作用域不会被过滤掉，一定包含。所以在何处调用函数都能访问到。</li> <li>其余作用域会根据是否内部有变量被当前函数所引用而过滤掉一些。不是每个返回的子函数都会生成闭包。</li> <li>被引用的作用域也会过滤掉没有被引用的 binding （变量声明）。只把用到的变量打个包。</li></ol> <h4 id="闭包的缺点"><a href="#闭包的缺点" class="header-anchor">#</a> 闭包的缺点</h4> <p>闭包的出现解决了子函数晚于父函数销毁的问题，我们会在父函数销毁时，把子函数引用到的变量打包成Closure包放到函数的[[Scopes]]上，即使父函数销毁了也能随时访问外部环境。
+但这种设计有没有缺点呢？这个问题就出在[[Scopes]]上。</p> <p>我们知道 JavaScript 引擎会把内存分为函数调用栈、全局作用域和堆，其中堆用于放一些动态的对象，调用栈每一个栈帧放一个函数的执行上下文，里面有一个 local 变量环境用于放内部声明的一些变量，如果是对象，会在堆上分配空间，然后把引用保存在栈帧的 local 环境中。全局作用域也是一样，只不过一般用于放静态的一些东西，有时候也叫静态域。</p> <p><img src="/assets/img/quedian1.c3a39625.png" alt="" title=":size=830x676"></p> <p>每个栈帧的执行上下文包含函数执行需要访问的所有环境，包括 local 环境、作用域链、this等。
+那么如果子函数返回了会发生什么呢？
+首先父函数的栈帧会销毁，子函数这个时候其实还没有被调用，所以还是一个堆中的对象，没有对应的栈帧，这时候父函数把作用域链过滤出需要用到的，形成闭包链，设置到子函数的 [[Scopes]] 属性上。</p> <p><img src="/assets/img/quedian2.87d2da91.png" alt="" title=":size=830x680"></p> <p>父函数销毁，栈帧对应的内存马上释放，用到的Obj 会被 gc 回收，而返回的函数会把作用域链过滤出用到的引用形成闭包链放在堆中。 这就导致了一个隐患： 如果一个很大的对象被函数引用，本来函数调用结束就能销毁，但是现在引用却被通过闭包保存到了堆里，而且还一直用不到，那这块堆内存就一直没法使用，严重到一定程度就算是内存泄漏了。所以闭包不要乱用，少打包一点东西到堆内存。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/js_docs/call和apply和bind的实现.html">
+        call / apply/ bind实现
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.c36be9e9.js" defer></script><script src="/assets/js/2.34235d8e.js" defer></script><script src="/assets/js/3.2f02bfbf.js" defer></script>
+  </body>
+</html>
